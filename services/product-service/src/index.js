@@ -40,7 +40,7 @@ app.get('/product/:id', async (req,res) => {
 
 // Start the server
 
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 3003;
 app.listen(PORT, () => {
     console.log(`User service running on port ${PORT}`)
 })
