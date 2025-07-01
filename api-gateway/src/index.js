@@ -1,9 +1,8 @@
 const express = require('express')
 const dotenv = require('dotenv')
 const cors = require('cors')
-const proxy = httpProxy.createProxyServer();
-
 const httpProxy = require('http-proxy')
+const proxy = httpProxy.createProxyServer();
 
 dotenv.config();
 
