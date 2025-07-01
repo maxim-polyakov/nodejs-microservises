@@ -10,13 +10,13 @@ const app = express();
 app.use(cors());
 // proxy configuration
 app.use('/users', (req, res) => {
-    proxy.web(req, res, {target: 'http://localhost:3001'});
+    proxy.web(req, res, {target: 'http://localhost:3001', changeOrigin: true});
 });
 app.use('/products', (req, res) => {
-    proxy.web(req, res, {target: 'http://localhost:3003'});
+    proxy.web(req, res, {target: 'http://localhost:3003', changeOrigin: true});
 });
 app.use('/orders', (req, res) => {
-    proxy.web(req, res, {target: 'http://localhost:3002'});
+    proxy.web(req, res, {target: 'http://localhost:3002', changeOrigin: true});
 });
 
 
