@@ -1,15 +1,24 @@
 const express = require('express')
-const { createProxyMiddleware } = require('http-proxy-middleware')
 const dotenv = require('dotenv')
 const cors = require('cors')
+const proxy = httpProxy.createProxyServer();
+
+const httpProxy = require('http-proxy')
+
 dotenv.config();
 
 const app = express();
 app.use(cors());
 // proxy configuration
-app.use('/users', createProxyMiddleware({ target: 'http://localhost:3001', changeOrigin: true, secure: false }));
-app.use('/products', createProxyMiddleware({ target: 'http://localhost:3003', changeOrigin: true, secure: false }));
-app.use('/orders', createProxyMiddleware({ target: 'http://localhost:3002', changeOrigin: true, secure: false }));
+app.use('/users', (req, res) => {
+    proxy.web(req, res, {target: 'http://localhost:3001'});
+});
+app.use('/products', (req, res) => {
+    proxy.web(req, res, {target: 'http://localhost:3003'});
+});
+app.use('/orders', (req, res) => {
+    proxy.web(req, res, {target: 'http://localhost:3002'});
+});
 
 
 const PORT = process.env.PORT || 3000;
