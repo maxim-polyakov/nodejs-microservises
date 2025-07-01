@@ -17,7 +17,6 @@ mongoose.connect(process.env.MONGO_URL, { useNewUrlParser: true, })
 // product Schema
 const ordersSchema = new mongoose.Schema({
     name: String,
-    price: String,
     category: String
 })
 
@@ -28,19 +27,19 @@ app.get('/orders', async (req,res) => {
     const order = new Order(req.body);
     await order.save();
 
-    res.status(201).send(product);
+    res.status(201).send(order);
 })
 
 app.get('/order/:id', async (req,res) => {
     const order =  await Order.findById(req.params.id);
     res.send(order)
 
-    // res.status(201).send(user);
+    res.status(201).send(order);
 })
 
 // Start the server
 
 const PORT = process.env.PORT || 3003;
 app.listen(PORT, () => {
-    console.log(`User service running on port ${PORT}`)
+    console.log(`Order service running on port ${PORT}`)
 })
