@@ -50,7 +50,6 @@ typings/
 
 # Microservice specific
 services/**/node_modules
-services/**/.env
 services/**/npm-debug.log
 services/**/yarn-debug.log
 services/**/yarn-error.log
@@ -79,7 +78,6 @@ temp/
 
 # API Gateway specific
 api-gateway/node_modules
-api-gateway/.env
 api-gateway/npm-debug.log
 api-gateway/yarn-debug.log
 api-gateway/yarn-error.log
