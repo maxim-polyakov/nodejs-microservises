@@ -1,13 +1,15 @@
 const express = require('express')
 const mongoose = require('mongoose')
 const dotenv = require('dotenv')
+const cors = require('cors')
 
 const amqp = require('amqplib/callback_api')
 
 dotenv.config();
 
-const app = express();
 
+const app = express();
+app.use(cors());
 app.use(express.json());
 
 // Connect to moongoDB
