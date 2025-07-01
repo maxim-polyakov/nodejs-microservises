@@ -7,9 +7,9 @@ dotenv.config();
 const app = express();
 
 // proxy configuration
-app.use('/users', createProxyMiddleware({ target: process.env.USER_SERVICE_URL, changeOrigin: true, secure: false }))
-app.use('/products', createProxyMiddleware({ target: process.env.PRODUCT_SERVICE_URL, changeOrigin: true, secure: false }))
-app.use('/orders', createProxyMiddleware({ target: process.env.ORDER_SERVICE_URL, changeOrigin: true, secure: false }))
+app.use('/users', createProxyMiddleware({ target: 'http://localhost:3001', changeOrigin: true, secure: false }))
+app.use('/products', createProxyMiddleware({ target: 'http://localhost:3003', changeOrigin: true, secure: false }))
+app.use('/orders', createProxyMiddleware({ target: 'http://localhost:3002', changeOrigin: true, secure: false }))
 
 const PORT = process.env.PORT || 3000;
 
