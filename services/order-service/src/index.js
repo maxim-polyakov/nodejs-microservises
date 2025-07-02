@@ -24,8 +24,7 @@ const Order = mongoose.model('Order',ordersSchema)
 
 // Routes
 app.get('/orders', async (req,res) => {
-    const order = new Order(req.body);
-    await order.save();
+    const order = await Order.findAll()
 
     res.status(201).send(order);
 })

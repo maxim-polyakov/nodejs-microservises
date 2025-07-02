@@ -35,7 +35,7 @@ app.get('/product/:id', async (req,res) => {
     const product =  await Product.findById(req.params.id);
     res.send(product)
 
-    // res.status(201).send(user);
+    res.status(201).send(product);
 })
 
 // Start the server
