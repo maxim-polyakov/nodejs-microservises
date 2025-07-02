@@ -9,9 +9,9 @@ const app = express();
 app.use(cors());
 
 
-app.use('/users', createProxyMiddleware({ target: 'http://user:3001', changeOrigin: true, }))
-app.use('/products', createProxyMiddleware({ target: 'http://product:3003', changeOrigin: true, }))
-app.use('/orders', createProxyMiddleware({ target: 'http://order:3002', changeOrigin: true, }))
+app.use('/users', createProxyMiddleware({ target: process.env.USER_SERVICE_URL, changeOrigin: true, }))
+app.use('/products', createProxyMiddleware({ target: process.env.PRODUCT_SERVICE_URL, changeOrigin: true, }))
+app.use('/orders', createProxyMiddleware({ target: process.env.ORDER_SERVICE_URL, changeOrigin: true, }))
 
 const PORT = process.env.PORT || 3000;
 

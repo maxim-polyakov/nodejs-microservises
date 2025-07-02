@@ -30,10 +30,10 @@ services:
     ports:
       - "3000:3000"
     environment:
-      - USER_SERVICE_URL=http://127.0.0.1:3001
+      - USER_SERVICE_URL=http://user:3001
       - PORT=3000
-      - ORDER_SERVICE_URL=http://127.0.0.1:3002
-      - PRODUCT_SERVICE_URL=http://127.0.0.1:3003
+      - ORDER_SERVICE_URL=http://order:3002
+      - PRODUCT_SERVICE_URL=http://product:3003
 
   mongo:
     image: mongo
