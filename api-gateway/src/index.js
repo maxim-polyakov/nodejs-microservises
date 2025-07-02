@@ -1,7 +1,9 @@
+import fetch from "node-fetch";
+
 const express = require('express')
 const dotenv = require('dotenv')
 const cors = require('cors')
-import fetch from "node-fetch";
+
 
 const proxy = httpProxy.createProxyServer();
 
