@@ -3,8 +3,6 @@ const dotenv = require('dotenv')
 const cors = require('cors')
 const fetch = require('node-fetch');
 
-const proxy = httpProxy.createProxyServer();
-
 dotenv.config();
 
 const app = express();
