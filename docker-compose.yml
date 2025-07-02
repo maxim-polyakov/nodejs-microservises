@@ -1,7 +1,7 @@
 version: '3'
 
 services:
-  user-service:
+  user:
     build: ./services/user-service
     ports:
       - "3001:3001"
@@ -9,7 +9,7 @@ services:
       - MONGO_URL=mongodb+srv://postgres:postgres@onlinestore.mnnjisf.mongodb.net/?retryWrites=true&w=majority&appName=OnlineStore
       - PORT=3001
 
-  order-service:
+  order:
     build: ./services/order-service
     ports:
       - "3002:3002"
@@ -17,7 +17,7 @@ services:
       - MONGO_URL=mongodb+srv://postgres:postgres@onlinestore.mnnjisf.mongodb.net/?retryWrites=true&w=majority&appName=OnlineStore
       - PORT=3002
 
-  product-service:
+  product:
     build: ./services/product-service
     ports:
       - "3003:3003"
