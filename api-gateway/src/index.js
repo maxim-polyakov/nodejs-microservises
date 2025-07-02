@@ -11,7 +11,7 @@ app.use(cors());
 app.get('/users', async (req, res) => {
     try {
         // внешний api, к которому мы обращаемся
-        const externalapiurl = 'http://localhost:3001';
+        const externalapiurl = 'http://user-service:3001';
 
         // получаем данные с внешнего api
         const response = await fetch(externalapiurl);
@@ -33,7 +33,7 @@ app.get('/users', async (req, res) => {
 app.get('/products', async (req, res) => {
     try {
         // внешний api, к которому мы обращаемся
-        const externalapiurl = 'http://localhost:3003';
+        const externalapiurl = 'http://product-service:3003';
 
         // получаем данные с внешнего api
         const response = await fetch(externalapiurl);
@@ -41,7 +41,7 @@ app.get('/products', async (req, res) => {
         if (!response.ok) {
             throw new error(`ошибка при запросе: ${response.status}`);
         }
-
+k
         const data = await response.json();
 
         // возвращаем данные клиенту
@@ -55,7 +55,7 @@ app.get('/products', async (req, res) => {
 app.get('/orders', async (req, res) => {
     try {
         // внешний api, к которому мы обращаемся
-        const externalapiurl = 'http://localhost:3002';
+        const externalapiurl = 'http://order-service:3002';
 
         // получаем данные с внешнего api
         const response = await fetch(externalapiurl);
