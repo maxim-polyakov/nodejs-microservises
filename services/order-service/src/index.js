@@ -29,6 +29,12 @@ app.get('/orders', async (req,res) => {
     res.status(201).send(order);
 })
 
+app.post('/createorder', async (req,res) => {
+    const order = new Order(req.body);
+    await order.save();
+    res.status(201).send(order);
+})
+
 app.get('/order/:id', async (req,res) => {
     const order =  await Order.findById(req.params.id);
     res.send(order)
