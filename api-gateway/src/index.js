@@ -26,7 +26,7 @@ app.get('/users', async (req, res) => {
         res.json(data);
     } catch (error) {
         console.error('ошибка api gateway:', error.message);
-        res.status(500).json({ error: 'ошибка при получении данных' });
+        res.status(500).json({ error });
     }
 });
 
@@ -48,7 +48,7 @@ app.get('/products', async (req, res) => {
         res.json(data);
     } catch (error) {
         console.error('ошибка api gateway:', error.message);
-        res.status(500).json({ error: 'ошибка при получении данных' });
+        res.status(500).json({ error });
     }
 });
 
@@ -70,7 +70,7 @@ app.get('/orders', async (req, res) => {
         res.json(data);
     } catch (error) {
         console.error('ошибка api gateway:', error.message);
-        res.status(500).json({ error: 'ошибка при получении данных' });
+        res.status(500).json({ error });
     }
 });
 
