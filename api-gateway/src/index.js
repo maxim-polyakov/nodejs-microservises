@@ -1,25 +1,28 @@
 const express = require('express')
 const dotenv = require('dotenv')
 const cors = require('cors')
-const fetch = require('node-fetch');
-const httpProxy = require('http-proxy')
-const proxy = httpProxy.createProxyServer();
+const { createproxymiddleware } = require('http-proxy-middleware');
+
 dotenv.config();
 
 const app = express();
 app.use(cors());
 
-// proxy configuration
-app.use('/users', (req, res) => {
-    proxy.web(req, res, {target: 'http://user:3001', changeOrigin: true});
-});
-app.use('/products', (req, res) => {
-    proxy.web(req, res, {target: 'http://product:3003', changeOrigin: true});
-});
-app.use('/orders', (req, res) => {
-    proxy.web(req, res, {target: 'http://order:3002', changeOrigin: true});
-});
+app.use('/users', createproxymiddleware({
+    target: 'http://user:3001', // адрес user service
+    changeorigin: true
+}));
 
+app.use('/products', createproxymiddleware({
+    target: 'http://product:3003', // адрес product service
+    changeorigin: true
+}));
+
+
+app.use('/orders', createproxymiddleware({
+    target: 'http://order:3002', // адрес order service
+    changeorigin: true
+}));
 
 const PORT = process.env.PORT || 3000;
 
